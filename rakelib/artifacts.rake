@@ -50,7 +50,7 @@ namespace "artifact" do
       "logstash-core-plugin-api/*.gemspec",
 
       "patterns/**/*",
-      # "tools/ingest-converter/build/libs/ingest-converter.jar",
+      "tools/ingest-converter/build/libs/ingest-converter.jar",
       "vendor/??*/**/*",
       # To include ruby-maven's hidden ".mvn" directory, we need to
       # do add the line below. This directory contains a file called
@@ -331,8 +331,6 @@ namespace "artifact" do
   end
 
   task "generate_build_metadata" do
-    require 'time'  
-  
     return if defined?(BUILD_METADATA_FILE)
     BUILD_METADATA_FILE = Tempfile.new('build.rb')
     BUILD_DATE=Time.now.iso8601
